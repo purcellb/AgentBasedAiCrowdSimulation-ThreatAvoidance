@@ -6,20 +6,19 @@ using UnityEngine.AI;
 
 namespace Assets.AI
 {
-    public class PersonAvoidThreatBehavior : PersonBehavior
+    public class PersonAvoidThreat : Person
     {
-        private GameObject _nearestThreat;
+        private Threat _nearestThreat;
         private bool _seekingExit;
-        private GameObject[] _threats;
+        private Threat[] _threats;
         public float PanicRunAmount;
 
 
         protected override void Start()
         {
             base.Start();
-            //TODO: GameObject.FindObjectOfType<Threat>();
-            _threats = GameObject.FindGameObjectsWithTag("Threat");
-            _seekingExit = gameObject.GetComponent<PersonSeekExitBehavior>().enabled;
+            _threats = FindObjectsOfType<Threat>();
+            _seekingExit = gameObject.GetComponent<PersonSeekExit>().enabled;
 
             PanicRunAmount = DangerDistance * .6f;
             StartCoroutine("DoProximityCheck");
@@ -49,7 +48,7 @@ namespace Assets.AI
             Agent.SetDestination(hit.position);
         }
 
-        private GameObject ProximityCheck()
+        private Threat ThreatProximityCheck()
         {
             return _threats.FirstOrDefault(t =>
                 Vector3.Distance(transform.position, t.transform.position) < DangerDistance);
@@ -60,15 +59,9 @@ namespace Assets.AI
         {
             for (;;)
             {
-                _nearestThreat = ProximityCheck();
+                _nearestThreat = ThreatProximityCheck();
                 yield return new WaitForSeconds(.5f);
             }
-        }
-
-        // Update is called once per frame
-        [UsedImplicitly]
-        private void Update()
-        {
         }
     }
 }

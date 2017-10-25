@@ -4,17 +4,21 @@ using UnityEngine.AI;
 
 namespace Assets.AI
 {
-    public class PersonBehavior : MonoBehaviour
+    public class Person : MonoBehaviour
     {
         public NavMeshAgent Agent;
         public float Agility;
+        public float CurrentHealth;
         public float DangerDistance;
+        public float MaximumHealth;
         public float ReactionTime;
         public float SensorLength = 1.1f;
         public float SpeedModifier;
 
         protected virtual void Start()
         {
+            MaximumHealth = 100.0f;
+            CurrentHealth = MaximumHealth;
             Agent = GetComponent<NavMeshAgent>();
             SetupRandomizedAgent();
         }
@@ -37,8 +41,20 @@ namespace Assets.AI
         private void Update()
         {
             //todo: some sort of stuck detection? perhaps every X seconds check if im in roughly the same spot as last check
-            //todo: some sort of health/death/injury system
+
+            if (CurrentHealth < 0.0f) Die();
         }
+
+        private void Die()
+        {
+            //todo: record death on ui
+            var behaviors = gameObject.GetComponents<Behaviour>();
+            //turns off all behavior scripts and  rather than deleting the object. Dead people stop moving and thinking.
+            foreach (var behavior in behaviors)
+                behavior.enabled = false;
+            Debug.Log(gameObject.name + " died.");
+        }
+
 
         [UsedImplicitly]
         private void OnDrawGizmos()

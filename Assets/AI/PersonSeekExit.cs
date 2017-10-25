@@ -2,19 +2,20 @@
 using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Assets.AI
 {
-    public class PersonSeekExitBehavior : PersonBehavior
+    public class PersonSeekExit : Person
     {
         private GameObject[] _exits;
         private GameObject _nearestExit;
-        private GameObject[] _threats;
+        private Threat[] _threats;
 
         protected override void Start()
         {
             base.Start();
-            _threats = GameObject.FindGameObjectsWithTag("Threat");
+            _threats = FindObjectsOfType<Threat>();
             _exits = GameObject.FindGameObjectsWithTag("Exit");
             InvokeRepeating("SetDestinationNearestExit", ReactionTime, Agility);
         }
@@ -51,9 +52,9 @@ namespace Assets.AI
             }
         }
 
-        private void Leave()
+        private void Leave(Object exit)
         {
-            //todo: record that this agent escaped, probably ui overlay/XML output
+            Debug.Log(gameObject.name + " escaped through exit " + exit.name);
             Destroy(gameObject);
         }
 
@@ -64,7 +65,7 @@ namespace Assets.AI
         {
             if (_nearestExit != null &&
                 Vector3.Distance(Agent.transform.position, _nearestExit.transform.position) < 2.0f)
-                Leave();
+                Leave(_nearestExit);
         }
     }
 }
