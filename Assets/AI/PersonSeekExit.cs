@@ -40,6 +40,7 @@ namespace Assets.AI
 
                 _nearestExit = e;
                 currentShortest = currentExitDistance;
+                if (!IsAlive) CancelInvoke();
             }
             try
             {
@@ -66,6 +67,7 @@ namespace Assets.AI
             if (_nearestExit != null &&
                 Vector3.Distance(Agent.transform.position, _nearestExit.transform.position) < 2.0f)
                 Leave(_nearestExit);
+            
         }
     }
 }

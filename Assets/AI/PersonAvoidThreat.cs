@@ -46,6 +46,7 @@ namespace Assets.AI
             NavMesh.SamplePosition(runTo, out hit, 5, 1 << NavMesh.GetAreaFromName("Walkable"));
 
             Agent.SetDestination(hit.position);
+            if (!IsAlive) CancelInvoke();
         }
 
         private Threat ThreatProximityCheck()
