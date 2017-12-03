@@ -23,6 +23,11 @@ namespace Assets.AI
         [UsedImplicitly]
         private void SetDestinationNearestExit()
         {
+            if (!IsAlive)
+            {
+                CancelInvoke();
+                return;
+            }
             var currentShortest = Mathf.Infinity;
             var actorPosition = transform.position;
 
@@ -30,7 +35,7 @@ namespace Assets.AI
             {
                 //if this exit is unsafe, skip it
                 if (_threats.Any(t =>
-                    Vector3.Distance(t.transform.position, e.transform.position) < DangerDistance)) continue;
+                    Vector3.Distance(t.transform.position, e.transform.position) < t.EffectiveRange)) continue;
 
                 var exitPosition = e.transform.position;
 
@@ -64,6 +69,10 @@ namespace Assets.AI
         [UsedImplicitly]
         private void Update()
         {
+            if (!IsAlive)
+            {
+                return;
+            }
             if (_nearestExit != null &&
                 Vector3.Distance(Agent.transform.position, _nearestExit.transform.position) < 2.0f)
                 Leave(_nearestExit);

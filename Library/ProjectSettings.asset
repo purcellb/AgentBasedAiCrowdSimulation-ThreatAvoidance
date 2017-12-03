@@ -599,13 +599,13 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Collab: 1
+    Collab: 0
     UNet: 1
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
-  cloudProjectId: 1fda091a-bc87-4148-a92d-c1515c6b15eb
+  cloudProjectId: 812698b9-bfe3-49d3-aa23-0625b0890667
   projectName: EmergencyEvacuation
-  organizationId: brpurcel
+  organizationId: bpurcell_unity
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

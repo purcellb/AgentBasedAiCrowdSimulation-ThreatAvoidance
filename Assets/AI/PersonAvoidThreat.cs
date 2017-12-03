@@ -13,17 +13,16 @@ namespace Assets.AI
         private Threat[] _threats;
         public float PanicRunAmount;
 
-
         protected override void Start()
         {
             base.Start();
             _threats = FindObjectsOfType<Threat>();
             _seekingExit = gameObject.GetComponent<PersonSeekExit>().enabled;
 
-            PanicRunAmount = DangerDistance * .6f;
+            PanicRunAmount = DangerDistance * .5f;
             StartCoroutine("DoProximityCheck");
 
-            InvokeRepeating("AvoidThreats", 0, ReactionTime);
+            InvokeRepeating("AvoidThreats", 0, Agility);
         }
 
         [UsedImplicitly]
@@ -55,13 +54,13 @@ namespace Assets.AI
                 Vector3.Distance(transform.position, t.transform.position) < DangerDistance);
         }
 
-        //proximity check for threats, every tenth of a second
+        //proximity check for threats, every quarter of a second
         private IEnumerator DoProximityCheck()
         {
             for (;;)
             {
                 _nearestThreat = ThreatProximityCheck();
-                yield return new WaitForSeconds(.5f);
+                yield return new WaitForSeconds(.25f);
             }
         }
     }
