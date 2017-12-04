@@ -392,9 +392,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1868}
   - component: {fileID: 2385}
-  - component: {fileID: 4797}
   - component: {fileID: 4801}
   - component: {fileID: 4796}
+  - component: {fileID: 677}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -402,6 +402,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bdf1e7ad9250e64a80bc03927438279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2722,13 +2733,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 676}
   m_Enabled: 1
---- !u!92 &4797
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 676}
-  m_Enabled: 1
 --- !u!104 &4798
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -2757,7 +2761,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427147, b: 0.56452364, a: 1}
 --- !u!108 &4799
 Light:
   m_ObjectHideFlags: 0
@@ -18420,7 +18424,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 555446722}
   m_LocalRotation: {x: 4.8072466e-11, y: -0.7071068, z: -4.8072466e-11, w: 0.7071068}
-  m_LocalPosition: {x: -103.1, y: 120, z: 195.9}
+  m_LocalPosition: {x: -101.8, y: 120, z: 195.9}
   m_LocalScale: {x: 1.0878197, y: 0.1638477, z: 1.0878198}
   m_Children: []
   m_Father: {fileID: 1497282421}
@@ -22803,7 +22807,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 718216438}
   m_LocalRotation: {x: 4.8072466e-11, y: -0.7071068, z: -4.8072466e-11, w: 0.7071068}
-  m_LocalPosition: {x: -105.71, y: 119.92, z: 44}
+  m_LocalPosition: {x: -107.14, y: 119.92, z: 44.66}
   m_LocalScale: {x: 0.9915479, y: 0.15138377, z: 0.9915479}
   m_Children: []
   m_Father: {fileID: 1497282421}
@@ -43016,7 +43020,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4156761658911672, guid: 77649cc71b3830b44b2922e196393dc4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 24.6
+      value: 24.634354
       objectReference: {fileID: 0}
     - target: {fileID: 4156761658911672, guid: 77649cc71b3830b44b2922e196393dc4, type: 2}
       propertyPath: m_LocalPosition.y
@@ -43024,7 +43028,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4156761658911672, guid: 77649cc71b3830b44b2922e196393dc4, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 5.7
+      value: 5.714119
       objectReference: {fileID: 0}
     - target: {fileID: 4156761658911672, guid: 77649cc71b3830b44b2922e196393dc4, type: 2}
       propertyPath: m_LocalRotation.x
@@ -43032,7 +43036,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4156761658911672, guid: 77649cc71b3830b44b2922e196393dc4, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.41420108
+      value: 0.564479
       objectReference: {fileID: 0}
     - target: {fileID: 4156761658911672, guid: 77649cc71b3830b44b2922e196393dc4, type: 2}
       propertyPath: m_LocalRotation.z
@@ -43040,7 +43044,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4156761658911672, guid: 77649cc71b3830b44b2922e196393dc4, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -0.91018546
+      value: -0.82544744
       objectReference: {fileID: 0}
     - target: {fileID: 4156761658911672, guid: 77649cc71b3830b44b2922e196393dc4, type: 2}
       propertyPath: m_RootOrder
@@ -43067,7 +43071,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4156761658911672, guid: 77649cc71b3830b44b2922e196393dc4, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 311.062
+      value: 291.268
       objectReference: {fileID: 0}
     - target: {fileID: 208413302886830128, guid: 77649cc71b3830b44b2922e196393dc4,
         type: 2}

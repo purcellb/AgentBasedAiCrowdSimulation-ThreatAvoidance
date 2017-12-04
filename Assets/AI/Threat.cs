@@ -18,6 +18,7 @@ namespace Assets.AI
         public float EffectiveRange = 70.0f;
         public int MagazineSize = 15;
         public float MuzzleVelocity = 40000.0f;
+        public float FiringCone = 1.0f;
         public Person Target;
         public LayerMask TargetMask;
         public float TimeBetweenShots = .33f;
@@ -101,10 +102,17 @@ namespace Assets.AI
                 Reload();
                 return;
             }
-            var bulletHandler =
-                Instantiate(Bullet, BulletEmitter.transform.position, BulletEmitter.transform.rotation);
+            
+            
 
-            var bulletRigidbody = bulletHandler.GetComponent<Rigidbody>();
+        float xSpread = Random.Range(-1, 1);
+        float ySpread = Random.Range(-1, 1);
+        //normalize the spread vector to keep it conical
+        Vector3 spread = new Vector3(xSpread, ySpread, 0.0f).normalized * FiringCone;
+        Quaternion rotation = Quaternion.Euler(spread) * BulletEmitter.transform.rotation;
+        var bulletHandler = Instantiate(Bullet, BulletEmitter.transform.position, rotation);
+
+        var bulletRigidbody = bulletHandler.GetComponent<Rigidbody>();
 
             //"fires" the bullet
             bulletRigidbody.AddForce(transform.forward * MuzzleVelocity);
