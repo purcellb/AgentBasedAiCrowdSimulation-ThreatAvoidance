@@ -24,8 +24,8 @@ GameObject:
   - component: {fileID: 23864877780970868}
   - component: {fileID: 114602764073378148}
   - component: {fileID: 114103296613029514}
-  - component: {fileID: 195380016885455028}
   - component: {fileID: 208413302886830128}
+  - component: {fileID: 195295794920889608}
   m_Layer: 0
   m_Name: Threat
   m_TagString: Threat
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d22ba2f30052fa740a25aeb4be7e8cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Agent: {fileID: 195380016885455028}
+  Agent: {fileID: 0}
   Agility: 2.0209475
   CurrentHealth: 100
   DangerDistance: 21.886564
@@ -241,7 +241,8 @@ MonoBehaviour:
   BulletEmitter: {fileID: 1568277331757748}
   EffectiveRange: 50
   MagazineSize: 25
-  MuzzleVelocity: 25000
+  MuzzleVelocity: 10000
+  FiringCone: 5
   Target: {fileID: 0}
   TargetMask:
     serializedVersion: 2
@@ -306,25 +307,25 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &195380016885455028
+--- !u!195 &195295794920889608
 NavMeshAgent:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1511635975753190}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
-  m_Radius: 0.00001
-  m_Speed: 3.9978864
-  m_Acceleration: 9.138026
-  avoidancePriority: 1
-  m_AngularSpeed: 137.07039
+  m_Radius: 0.50000024
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
+  m_Height: 0.99999994
+  m_BaseOffset: 0.49999997
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!208 &208413302886830128
@@ -333,7 +334,7 @@ NavMeshObstacle:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1511635975753190}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Shape: 0
   m_Extents: {x: 5, y: 0.5, z: 5}

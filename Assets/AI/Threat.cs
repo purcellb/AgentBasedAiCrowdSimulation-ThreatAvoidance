@@ -42,9 +42,9 @@ namespace Assets.AI
             Fire();
 
             //walk toward target at randomized rate
-            if (Vector3.Distance(transform.position, Target.transform.position) > 10)
+            if (Vector3.Distance(transform.position, Target.transform.position) > 7 && !_isReloading)
             {
-                var r = Random.Range(0.7f, 1.5f);
+                var r = Random.Range(1.2f, 2.0f);
                 transform.position += transform.forward * r * Time.deltaTime;
             }
         }
@@ -102,8 +102,6 @@ namespace Assets.AI
                 Reload();
                 return;
             }
-            
-            
 
         float xSpread = Random.Range(-1, 1);
         float ySpread = Random.Range(-1, 1);

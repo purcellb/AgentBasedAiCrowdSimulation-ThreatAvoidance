@@ -38,9 +38,9 @@ namespace Assets.AI
             //gives variety to the crowd
             SpeedModifier = Random.Range(.5f, 1.2f);
             ReactionTime = Random.Range(0.6f, 1.75f);
-            Agility = Random.Range(2.0f, 3.0f);
+            Agility = Random.Range(.5f, 1.0f);
             MentalBreakThreshold = Random.Range(3, 12); 
-            DangerDistance = 25.0f / SpeedModifier; //if im slower, I percieve danger farther away
+            DangerDistance = 20.0f / SpeedModifier; //if im slower, I percieve danger farther away
             Agent.acceleration *= SpeedModifier;
             Agent.speed *= SpeedModifier;
             Agent.angularSpeed *= SpeedModifier;

@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>2017.2.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -220,14 +222,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AI\Bullet.cs" />
-    <Compile Include="Assets\AI\FieldOfView.cs" />
     <Compile Include="Assets\AI\IThreaten.cs" />
     <Compile Include="Assets\AI\Person.cs" />
     <Compile Include="Assets\AI\PersonAvoidThreat.cs" />
     <Compile Include="Assets\AI\PersonSeekExit.cs" />
     <Compile Include="Assets\AI\RandomMovement.cs" />
     <Compile Include="Assets\AI\Threat.cs" />
-    <Compile Include="Assets\Scenes\MainHall\VertHandler.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\GUIButton.cs" />
+    <Compile Include="Assets\Scripts\VertHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
