@@ -39,7 +39,7 @@ namespace Assets.AI
             SpeedModifier = Random.Range(.5f, 1.2f);
             ReactionTime = Random.Range(0.6f, 1.75f);
             Agility = Random.Range(.5f, 1.0f);
-            MentalBreakThreshold = Random.Range(3, 12); 
+            MentalBreakThreshold = Random.Range(3, 12);
             DangerDistance = 20.0f / SpeedModifier; //if im slower, I percieve danger farther away
             Agent.acceleration *= SpeedModifier;
             Agent.speed *= SpeedModifier;
@@ -66,8 +66,13 @@ namespace Assets.AI
             //randomly bleeding if badly wounded from gunshots
             var r = Random.Range(1, 100);
             if (CurrentHealth < 33.3f && WoundCount >= 2 && r > 25)
-                CurrentHealth -= .25f;
+            {
+                IEnumerable<Person> personParts = gameObject.GetComponents<Person>();
 
+                personParts = personParts.Where(t => t.IsAlive);
+                foreach (var part in personParts)
+                    part.CurrentHealth -= .12f;
+            }
             if (CurrentHealth < 0.0f) Die();
         }
 
@@ -78,7 +83,7 @@ namespace Assets.AI
             //Dead people stop moving and thinking, they dont disappear
 
             IEnumerable<Person> personParts = gameObject.GetComponents<Person>();
-            
+
             //tell all person components that this person is dead.
             if (personParts == null) return;
             personParts = personParts.Where(t => t.IsAlive);

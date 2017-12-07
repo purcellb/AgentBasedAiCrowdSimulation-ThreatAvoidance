@@ -20,12 +20,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4156761658911672}
   - component: {fileID: 33847557365395334}
-  - component: {fileID: 65411123488273598}
   - component: {fileID: 23864877780970868}
   - component: {fileID: 114602764073378148}
   - component: {fileID: 114103296613029514}
   - component: {fileID: 208413302886830128}
   - component: {fileID: 195295794920889608}
+  - component: {fileID: 64328854803156510}
   m_Layer: 0
   m_Name: Threat
   m_TagString: Threat
@@ -86,14 +86,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1511635975753190}
-  m_LocalRotation: {x: -0, y: 0.97837645, z: -0, w: -0.20683236}
-  m_LocalPosition: {x: -0.93, y: 1.92, z: 3.14}
+  m_LocalRotation: {x: -0, y: 0.8026263, z: -0, w: 0.5964822}
+  m_LocalPosition: {x: -27.35, y: 1.843, z: 0.12}
   m_LocalScale: {x: 1, y: 3.487562, z: 0.9}
   m_Children:
   - {fileID: 4015205054247646}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 203.874, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 106.76301, z: 0}
 --- !u!4 &4261393348370890
 Transform:
   m_ObjectHideFlags: 1
@@ -101,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1568277331757748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.368, z: -0}
+  m_LocalPosition: {x: 0, y: -1.385, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4015205054247646}
@@ -189,8 +189,8 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1511635975753190}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &65411123488273598
-BoxCollider:
+--- !u!64 &64328854803156510
+MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -199,8 +199,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114103296613029514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,10 +238,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b081545caa8274a81af9ad472213e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AmmoCount: 5
+  AmmoCount: 25
   Bullet: {fileID: 1112960961189632, guid: abb9197b62e6419419f803f4206bca6f, type: 2}
   BulletEmitter: {fileID: 1568277331757748}
-  EffectiveRange: 50
+  EffectiveRange: 55
   MagazineSize: 25
   MuzzleVelocity: 10000
   FiringCone: 5
@@ -247,10 +249,10 @@ MonoBehaviour:
   TargetMask:
     serializedVersion: 2
     m_Bits: 256
-  TimeBetweenShots: 0.25
-  TurnRateRadians: 6.2831855
+  TimeBetweenShots: 0.2
+  TurnRateRadians: 2
   VaryBy: 0.15
-  ViewAngle: 110
+  ViewAngle: 150
   VisibleTargets:
   - {fileID: 0}
   - {fileID: 0}

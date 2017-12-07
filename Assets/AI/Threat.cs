@@ -17,7 +17,7 @@ namespace Assets.AI
         public GameObject BulletEmitter;
         public float EffectiveRange = 70.0f;
         public int MagazineSize = 15;
-        public float MuzzleVelocity = 40000.0f;
+        public float MuzzleVelocity = 10000.0f;
         public float FiringCone = 1.0f;
         public Person Target;
         public LayerMask TargetMask;
@@ -32,6 +32,7 @@ namespace Assets.AI
         {
             AmmoCount = MagazineSize;
             Invoke("EnableObstacle", 5f);
+            //Invoke("EnableAgent", 15f);
             StartCoroutine("DoProximityCheck");
         }
 
@@ -42,9 +43,9 @@ namespace Assets.AI
             Fire();
 
             //walk toward target at randomized rate
-            if (Vector3.Distance(transform.position, Target.transform.position) > 7 && !_isReloading)
+            if (Vector3.Distance(transform.position, Target.transform.position) > 10 && !_isReloading)
             {
-                var r = Random.Range(1.2f, 2.0f);
+                var r = Random.Range(1.0f, 2.0f);
                 transform.position += transform.forward * r * Time.deltaTime;
             }
         }
@@ -75,7 +76,8 @@ namespace Assets.AI
         private void Reload()
         {
             _isReloading = true;
-            Invoke("FinishReloading", 3.0f);
+            var r = Random.Range(1f,4f);
+            Invoke("FinishReloading", r);
         }
 
         private void FinishReloading()
@@ -169,7 +171,14 @@ namespace Assets.AI
 
         private void EnableObstacle()
         {
+            gameObject.GetComponent<NavMeshAgent>().enabled = false;
             gameObject.GetComponent<NavMeshObstacle>().enabled = true;
+        }
+
+        private void EnableAgent()
+        {
+            gameObject.GetComponent<NavMeshObstacle>().enabled = false;
+            gameObject.GetComponent<NavMeshAgent>().enabled = true;
         }
 
         private void OnDrawGizmosSelected()
